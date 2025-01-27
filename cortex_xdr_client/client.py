@@ -9,6 +9,7 @@ from cortex_xdr_client.api.incidents_api import IncidentsAPI
 from cortex_xdr_client.api.ioc_api import IocAPI
 from cortex_xdr_client.api.scripts_api import ScriptsAPI
 from cortex_xdr_client.api.xql_api import XQLAPI
+from cortex_xdr_client.api.audits_api import AuditsAPI
 
 
 class CortexXDRClient(object):
@@ -50,5 +51,8 @@ class CortexXDRClient(object):
                                       fqdn=fqdn,
                                       timeout=default_timeout)
         self.ioc_api = IocAPI(auth=auth,
+                              fqdn=fqdn,
+                              timeout=default_timeout)
+        self.audits_api = AuditsAPI(auth=auth,
                               fqdn=fqdn,
                               timeout=default_timeout)
