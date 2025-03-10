@@ -3,6 +3,8 @@ from typing import Any, List, Optional, Union
 
 from pydantic import BaseModel
 
+from cortex_xdr_client.api.models.base import CustomBaseModel
+
 
 class AuditEntity(str, Enum):
     """
@@ -90,12 +92,12 @@ class AuditEntity(str, Enum):
     REMEDIATION_PATH_RULES = "REMEDIATION_PATH_RULES"
 
 
-class AuditAdditionalInformation(BaseModel):
+class AuditAdditionalInformation(CustomBaseModel):
     endpoint_names: Optional[List[str]]
     endoint_count: Optional[int]
 
 
-class Audit(BaseModel):
+class Audit(CustomBaseModel):
     AUDIT_ID: Union[int, None]
     AUDIT_OWNER_NAME: Union[str, None]
     AUDIT_OWNER_EMAIL: Union[str, None]
@@ -118,11 +120,11 @@ class Audit(BaseModel):
     AUDIT_ADDITIONAL_INFORMATION: Union[AuditAdditionalInformation, None]
 
 
-class GetAuditManagementLogsResponseItem(BaseModel):
+class GetAuditManagementLogsResponseItem(CustomBaseModel):
     total_count: Optional[int]
     result_count: Optional[int]
     data: List[Audit]
 
 
-class GetAuditManagementLogsResponse(BaseModel):
+class GetAuditManagementLogsResponse(CustomBaseModel):
     reply: GetAuditManagementLogsResponseItem
