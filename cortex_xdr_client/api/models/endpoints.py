@@ -3,6 +3,8 @@ from typing import List, Optional, Union
 
 from pydantic import BaseModel
 
+from cortex_xdr_client.api.models.base import CustomBaseModel
+
 
 class EndpointStatus(Enum):
     """
@@ -11,6 +13,7 @@ class EndpointStatus(Enum):
     connected = "CONNECTED"
     disconnected = "DISCONNECTED"
     lost = "LOST"
+    uninstalled = "UNINSTALLED"
 
 
 class EndpointPlatform(Enum):
@@ -48,7 +51,7 @@ class ScanStatus(Enum):
     error = "SCAN_STATUS_ERROR"
 
 
-class LightEndpoint(BaseModel):
+class LightEndpoint(CustomBaseModel):
     agent_id: Optional[str]
     agent_status: Optional[str]
     host_name: Optional[str]
@@ -56,11 +59,11 @@ class LightEndpoint(BaseModel):
     ip: Optional[List[str]]
 
 
-class GetAllEndpointsResponse(BaseModel):
+class GetAllEndpointsResponse(CustomBaseModel):
     reply: List[LightEndpoint]
 
 
-class Endpoint(BaseModel):
+class Endpoint(CustomBaseModel):
     active_directory: Union[List[str], Optional[str]]
     alias: Optional[str]
     content_version: Optional[str]
@@ -85,6 +88,11 @@ class Endpoint(BaseModel):
     scan_status: Optional[ScanStatus]
     users: Union[Optional[List[str]], Optional[str]]
     mac_address: Optional[List[str]]
+    os_version: Optional[str]
+    ipv6: Optional[list[str]]
+    public_ip: Optional[str]
+    operating_system: Optional[str]
+    tags: Optional[dict]
 
     class Config:
         use_enum_names = True
