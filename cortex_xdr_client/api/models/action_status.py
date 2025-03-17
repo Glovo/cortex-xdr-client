@@ -3,7 +3,7 @@ from typing import Dict, Optional, Union
 from cortex_xdr_client.api.models.base import CustomBaseModel
 
 
-class ActionStatus(enum.StrEnum):
+class ActionStatus(enum.Enum):
     """
     Enum for action status
     """
