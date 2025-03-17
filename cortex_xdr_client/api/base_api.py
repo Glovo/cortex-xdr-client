@@ -1,5 +1,5 @@
 import collections
-from typing import Tuple
+from typing import Tuple, Union
 
 import requests
 
@@ -13,7 +13,7 @@ class BaseAPI:
         self._requests_timeout = timeout
         self._api_name = api_name
 
-    def _get_url(self, call_name: str, api_version: str | None = None) -> str:
+    def _get_url(self, call_name: str, api_version: Union[str, None] = None) -> str:
         if api_version is None:
             return f"https://api-{self._fqdn}/public_api/v1/{self._api_name}/{call_name}"
         else:
