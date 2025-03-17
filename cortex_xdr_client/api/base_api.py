@@ -25,7 +25,7 @@ class BaseAPI:
               params: dict = None,
               json_value: object = None,
               header_params=None,
-              api_version: str | None = None) -> requests.Response:
+              api_version: Union[str, None] = None) -> requests.Response:
         if header_params is None:
             header_params = {}
         url = self._get_url(call_name, api_version)
