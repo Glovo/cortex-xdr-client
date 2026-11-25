@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 cortex-xdr-client
+# cortex-xdr-client
 
 **Typed Python client for the Cortex XDR API · alerts · endpoints · incidents · scripts · XQL**
 
@@ -12,12 +12,11 @@ Cortex API.
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Poetry](https://img.shields.io/badge/Poetry-poetry--core-60A5FA?logo=poetry&logoColor=white)](pyproject.toml)
-[![requests](https://img.shields.io/badge/requests-2.x-blue)](pyproject.toml)
-[![pydantic](https://img.shields.io/badge/pydantic-1.x-E92063?logo=pydantic&logoColor=white)](pyproject.toml)
+[![requests](https://img.shields.io/badge/requests-blue)](pyproject.toml)
+[![pydantic](https://img.shields.io/badge/pydantic-E92063?logo=pydantic&logoColor=white)](pyproject.toml)
 <br/>
-[![Version](https://img.shields.io/badge/version-2.0.4-blue)](pyproject.toml)
+[![Version](https://img.shields.io/badge/version-blue)](pyproject.toml)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Test files](https://img.shields.io/badge/test_files-1-informational)](tests)
 [![Fork of](https://img.shields.io/badge/fork_of-ebarti%2Fcortex--xdr--client-lightgrey?logo=github)](https://github.com/ebarti/cortex-xdr-client)
 
 </div>
@@ -71,13 +70,13 @@ returns raw bytes.
 ### Supported Cortex XDR APIs
 
 These are the Cortex XDR **Prevent & Pro** APIs the client supports. Each method name links to the
-Cortex docs for that call. ✦ marks calls this fork added.
+Cortex docs for that call. marks calls this fork added.
 
 | API group · attribute | Method | Cortex call |
 |---|---|---|
 | Alerts · `alerts_api` | [`get_alerts`](https://cortex-panw.stoplight.io/docs/cortex-xdr/813e387002342-get-all-alerts) | `alerts/get_alerts_multi_events` (v1) |
-| | [`get_alerts_v2`](https://cortex-panw.stoplight.io/docs/cortex-xdr/a9873334620ed-get-alerts-multi-events-v2) ✦ | `alerts/get_alerts_multi_events` (v2), with sort |
-| Audits · `audits_api` | [`get_audit_management_logs`](https://cortex-panw.stoplight.io/docs/cortex-xdr/091d0d8b7d283-get-audit-management-log) ✦ | `audits/management_logs` |
+| | [`get_alerts_v2`](https://cortex-panw.stoplight.io/docs/cortex-xdr/a9873334620ed-get-alerts-multi-events-v2) | `alerts/get_alerts_multi_events` (v2), with sort |
+| Audits · `audits_api` | [`get_audit_management_logs`](https://cortex-panw.stoplight.io/docs/cortex-xdr/091d0d8b7d283-get-audit-management-log) | `audits/management_logs` |
 | Downloads · `download_api` | [`download_file`](https://cortex-panw.stoplight.io/docs/cortex-xdr/2932f29d2ccdd-file-retrieval-details) | `download/<file_api_value>` |
 | Endpoints · `endpoints_api` | [`get_all_endpoints`](https://cortex-panw.stoplight.io/docs/cortex-xdr/89535019b740f-get-all-endpoints) | `endpoints/get_endpoints` |
 | | [`get_endpoint`](https://cortex-panw.stoplight.io/docs/cortex-xdr/b149d40bd4c51-get-endpoint) | `endpoints/get_endpoint` |
@@ -235,7 +234,7 @@ a `chore: bump version` commit. Consumers pick up a release by changing the `rev
 
 ```text
 cortex-xdr-client/
-├── cortex_xdr_client/          # ⭐ the library
+├── cortex_xdr_client/          # source of truth: the library
 │   ├── client.py               # CortexXDRClient: one attribute per API group
 │   └── api/
 │       ├── authentication.py   # Standard / Advanced API-key headers
